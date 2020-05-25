@@ -1,9 +1,9 @@
-FROM alpine:edge
+FROM FROM quay.io/spivegin/tlmbasedebian
 
-
-RUN apk --update add --no-cache python3 py3-requests py3-pip openssl ca-certificates
-RUN apk --update add --virtual build-dependencies python3-dev build-base wget git \
-  && git clone https://github.com/maldevel/EmailHarvester.git
+RUN apt update -y && apt-get -y upgrade  && apt-get install -y unzip curl git openssl python3 build-essential  &&\
+    apt-get autoclean && apt-get autoremove &&\
+    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+RUN git clone https://github.com/maldevel/EmailHarvester.git
 WORKDIR EmailHarvester
 
 #COPY requirements.txt .
