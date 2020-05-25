@@ -8,5 +8,5 @@ WORKDIR EmailHarvester
 
 #COPY requirements.txt .
 RUN pip3 install -r requirements.txt
-ENTRYPOINT ["python3", "EmailHarvester.py"]
-CMD ["-h"]
+CMD ["python3", "EmailHarvester.py"]
+# CMD ["-h"]
